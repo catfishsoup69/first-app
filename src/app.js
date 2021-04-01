@@ -26,5 +26,6 @@ const App = () => {
   )
 }
 
+// TODO: доделать по второму уроку
 
 ReactDOM.render(<App />, document.getElementById('root'));
