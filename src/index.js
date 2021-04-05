@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {App} from './components/app'
+import {MessageField} from './components/MessageField'
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<MessageField />, document.getElementById('root'));

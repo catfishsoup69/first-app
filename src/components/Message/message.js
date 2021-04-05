@@ -10,13 +10,13 @@ const Message = ({addMessage}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    addMessage({text:text, author: authors.human})
+    addMessage({text: text, author: authors.human})
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <input type='text' value={text} placeholder='Пиши сюда' onChange={handleChange}/>
-      <input type='submit' />
+      <input type='submit'/>
     </form>
   )
 }

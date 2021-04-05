@@ -3,7 +3,7 @@ import React, {useState, useCallback, useEffect} from 'react';
 import {Message} from './Message/message';
 import {authors} from '../utils/constants';
 
-const App = () => {
+const MessageField = () => {
 
   const [messageArr, setMessageArr] = useState([])
 
@@ -12,7 +12,7 @@ const App = () => {
   }, [messageArr])
 
   useEffect(() => {
-    if (messageArr[messageArr.length-1]?.author === 'human') {
+    if (messageArr[messageArr.length - 1]?.author === 'human') {
       addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot})
     }
   })
@@ -32,4 +32,4 @@ const App = () => {
   )
 }
 
-export {App};
+export {MessageField};
