@@ -2,7 +2,7 @@ import React from 'react';
 import './button.scss';
 
 const Button = ({onClick}) => {
-  return(
+  return (
     <button className='button' onClick={onClick}>Жмяк</button>
   )
 }
