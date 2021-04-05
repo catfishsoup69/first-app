@@ -1,29 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 
-// import {Button} from './Button/button'
 import {Message} from './Message/message';
-import authors from './../utils/constants'
+import {authors} from '../utils/constants';
 
 const App = () => {
-
-  // const chat = [
-  //
-  // ]
 
   const [messageArr, setMessageArr] = useState([])
 
   const addMessage = useCallback((newMessage) => {
-    setMessageArr([...messageArr, newMessage])}, [])
+    setMessageArr([...messageArr, newMessage])
+  }, [messageArr])
 
+  useEffect(() => {
+    if (messageArr[messageArr.length-1]?.author === 'human') {
+      addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot})
+    }
+  })
 
   return (
     <React.Fragment>
       <h1>Болталка</h1>
       <Message addMessage={addMessage}/>
-      {/*<Button onClick={addMessage}/>*/}
-      {messageArr.map((message) => {
+      {messageArr.map(({author, text}, i) => {
         return (
-          <div>{message}</div>
+          <div key={i}>
+            {author}: {text}
+          </div>
         )
       })}
     </React.Fragment>
