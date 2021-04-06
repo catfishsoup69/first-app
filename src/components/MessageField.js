@@ -12,10 +12,15 @@ const MessageField = () => {
   }, [messageArr])
 
   useEffect(() => {
+    let timeout;
+
     if (messageArr[messageArr.length - 1]?.author === 'human') {
-      addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot})
+      timeout = setTimeout(() => {
+        addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot})},1500)
     }
-  })
+
+    return() => clearTimeout(timeout)
+  }, [messageArr])
 
   return (
     <React.Fragment>

@@ -11,6 +11,7 @@ const Message = ({addMessage}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     addMessage({text: text, author: authors.human})
+    setText('')
   }
 
   return (
