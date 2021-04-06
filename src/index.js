@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {MessageField} from './components/MessageField'
+import { App } from './components/app'
 
-ReactDOM.render(<MessageField />, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));

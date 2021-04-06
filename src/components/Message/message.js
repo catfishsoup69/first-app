@@ -1,5 +1,9 @@
-import React, {useState} from 'react';
-import {authors} from '../../utils/constants'
+import React, { useState } from 'react';
+import { authors } from '../../utils/constants';
+import { TextField } from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
+import SendIcon from '@material-ui/icons/Send';
+
 
 const Message = ({addMessage}) => {
   const [text, setText] = useState('')
@@ -15,11 +19,15 @@ const Message = ({addMessage}) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type='text' value={text} placeholder='Пиши сюда' onChange={handleChange}/>
-      <input type='submit'/>
+    <form onSubmit={ handleSubmit }>
+      <TextField type='text' value={ text } id='outlined-basic' variant='outlined' label='Пиши сюда'
+                 onChange={ handleChange } required/>
+      <IconButton type='submit' color='primary'>
+        <SendIcon />
+      </IconButton>
+      {/*<input />*/}
     </form>
   )
 }
 
-export {Message}
+export { Message }
