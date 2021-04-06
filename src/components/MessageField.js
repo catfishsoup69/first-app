@@ -15,7 +15,7 @@ const MessageField = () => {
     if (messageArr[messageArr.length - 1]?.author === 'human') {
       addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot})
     }
-  })
+  }, [messageArr])
 
   return (
     <React.Fragment>
