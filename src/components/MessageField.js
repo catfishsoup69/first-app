@@ -18,7 +18,6 @@ const MessageField = () => {
       timeout = setTimeout(() => {
         addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot})},1500)
     }
-  }, [messageArr])
 
     return() => clearTimeout(timeout)
   }, [messageArr])
