@@ -2,9 +2,9 @@ import React from 'react'
 
 import { Header } from './Header/header';
 import { MessageField } from './MessageField/messageField';
-// import { ChatList } from './ChatList/chatList';
+import { ChatList } from './ChatList/chatList';
 
-import styles from './app.scss'
+import './app.scss'
 
 const App = () => {
 
@@ -12,7 +12,7 @@ const App = () => {
     <section className='messenger'>
       <Header/>
       <MessageField/>
-      {/*<ChatList />*/ }
+      <ChatList />
     </section>
   )
 }

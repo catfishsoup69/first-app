@@ -1,0 +1,13 @@
+.message {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+
+  &__text-field {
+    flex-grow: 1;
+  }
+
+  &__btn {
+    width: 56px;
+  }
+}
