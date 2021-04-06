@@ -18,7 +18,7 @@ const MessageField = () => {
   }, [messageArr])
 
   return (
-    <React.Fragment>
+    <>
       <h1>Болталка</h1>
       <Message addMessage={addMessage}/>
       {messageArr.map(({author, text}, i) => {
@@ -28,7 +28,7 @@ const MessageField = () => {
           </div>
         )
       })}
-    </React.Fragment>
+    </>
   )
 }
 
