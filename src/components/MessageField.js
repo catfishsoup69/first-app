@@ -18,12 +18,13 @@ const MessageField = () => {
       timeout = setTimeout(() => {
         addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot})},1500)
     }
+  }, [messageArr])
 
     return() => clearTimeout(timeout)
   }, [messageArr])
 
   return (
-    <React.Fragment>
+    <>
       <h1>Болталка</h1>
       <Message addMessage={addMessage}/>
       {messageArr.map(({author, text}, i) => {
@@ -33,7 +34,7 @@ const MessageField = () => {
           </div>
         )
       })}
-    </React.Fragment>
+    </>
   )
 }
 
