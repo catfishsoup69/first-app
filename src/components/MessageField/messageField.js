@@ -19,16 +19,12 @@ const MessageField = () => {
     if (messageArr[messageArr.length - 1]?.author === 'human') {
       timeout = setTimeout(() => {
         addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot, id: messageArr.length})
-
-
       }, 750)
     }
 
     return () => {
       clearTimeout(timeout)
     }
-
-
   }, [messageArr])
 
   return (
