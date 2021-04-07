@@ -1,0 +1,19 @@
+.message-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 400px;
+  width: 70%;
+  border: 2px solid gray;
+  border-radius: 10px;
+
+  &--sended{
+    overflow-y: auto;
+    height: 100%;
+    padding: 15px 15px 0;
+  }
+}
+
+.right{
+  text-align: right;
+}
