@@ -16,7 +16,7 @@ const MessageField = () => {
   useEffect(() => {
     let timeout;
 
-    if (messageArr[messageArr.length - 1]?.author === 'human') {
+    if (messageArr[messageArr.length - 1]?.author === authors.human) {
       timeout = setTimeout(() => {
         addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot, id: messageArr.length})
       }, 750)
