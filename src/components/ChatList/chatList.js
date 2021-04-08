@@ -5,21 +5,24 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import Icon from '@material-ui/core/Icon';
+import { Link } from 'react-router-dom'
 
 import { chats } from '../../utils/constants';
+import './chatList.scss'
 
 const ChatList = () => {
   return (
     <List className='chat-list'>
-      { chats.map(({ title}) => {
+      { chats.map(({title, id}) => {
         return (
-          <ListItem key={ title }>
-            <ListItemAvatar>
-              <Avatar>{title[0]}</Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={ title }/>
-          </ListItem>
+            <ListItem key={ id }>
+              <Link className='chat-list__link' to={ `/chat/${ id }` }>
+              <ListItemAvatar>
+                <Avatar>{ title[0] }</Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={ title }/>
+              </Link>
+            </ListItem>
         )
       }) }
     </List>

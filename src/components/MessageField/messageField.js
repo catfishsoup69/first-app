@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import { Message } from '../Message/message';
 import { authors } from '../../utils/constants';
@@ -7,18 +8,31 @@ import './messageField.scss'
 
 const MessageField = () => {
 
-  const [messageArr, setMessageArr] = useState([])
+  const {chatId} = useParams();
+
+  const initialMessages = {
+    id1: [],
+    id2: [],
+    id3: [],
+    id4: [],
+    id5: [],
+  };
+
+  const [messageArr, setMessageArr] = useState(initialMessages)
 
   const addMessage = useCallback((newMessage) => {
-    setMessageArr([...messageArr, {...newMessage, id: messageArr.length}])
-  }, [messageArr])
+    setMessageArr({
+      ...messageArr[chatId], [chatId]: [{...newMessage, id: messageArr[chatId].length}]
+    }, [chatId])
+  })
 
   useEffect(() => {
     let timeout;
 
-    if (messageArr[messageArr.length - 1]?.author === authors.human) {
+    if (messageArr[chatId]?.[messageArr[chatId].length - 1]?.author === authors.human) {
       timeout = setTimeout(() => {
-        addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot, id: messageArr.length})
+        addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot, id: messageArr[chatId].length})
+        console.log(messageArr)
       }, 750)
     }
 
@@ -29,14 +43,14 @@ const MessageField = () => {
 
   return (
     <div className='message-field'>
-      <div className='message-field--sended'>
-        { messageArr.map(({author, text, id}) => {
+      <div className='message-field--sent'>
+        { messageArr[chatId]?.map(({author, text, id}) => {
           return (
-            <div key={ id } className={author === 'human' ? 'right' : ''}>
+            <div key={ id } className={ author === 'human' ? 'right' : '' }>
               { author }: { text }
             </div>
           )
-        })}
+        }) }
       </div>
       <Message addMessage={ addMessage }/>
     </div>

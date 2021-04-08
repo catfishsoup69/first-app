@@ -30,6 +30,7 @@ module.exports = {
   },
   mode: 'development',
   devServer: {
+    historyApiFallback: true,
     contentBase: path.join(__dirname, 'public')
   },
   plugins: [
