@@ -11,18 +11,17 @@ const MessageField = () => {
   const {chatId} = useParams();
 
   const initialMessages = {
-    id1: [],
-    id2: [],
-    id3: [],
-    id4: [],
-    id5: [],
+    'id1': [],
+    'id2': [],
+    'id3': [],
+    'id4': [],
+    'id5': [],
   };
 
   const [messageArr, setMessageArr] = useState(initialMessages)
 
   const addMessage = useCallback((newMessage) => {
-    setMessageArr({
-      ...messageArr[chatId], [chatId]: [{...newMessage, id: messageArr[chatId].length}]
+    setMessageArr({...messageArr, [chatId]: [...messageArr[chatId],{...newMessage, id: messageArr[chatId].length}]
     }, [chatId])
   })
 
@@ -31,8 +30,7 @@ const MessageField = () => {
 
     if (messageArr[chatId]?.[messageArr[chatId].length - 1]?.author === authors.human) {
       timeout = setTimeout(() => {
-        addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot, id: messageArr[chatId].length})
-        console.log(messageArr)
+        addMessage({text: 'Смотри, я отвечаю! :)', author: authors.bot})
       }, 750)
     }
 
