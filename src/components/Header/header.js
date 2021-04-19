@@ -1,7 +1,6 @@
 import React from 'react';
 import './header.scss'
 import { Link } from 'react-router-dom';
-import { ChatList } from '../ChatList/chatList';
 import {headerMenu} from '../../utils/constants';
 
 export const Header = () => {
@@ -18,8 +17,6 @@ export const Header = () => {
           })}
         </ul>
       </nav>
-      <ChatList />
-
     </>
   )
 }

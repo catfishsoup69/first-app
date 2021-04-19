@@ -6,6 +6,7 @@ import { App } from '../pages/App/app'
 import { PersonalPage } from '../pages/PersonalPage/personal';
 
 import './routes.scss'
+import { ChatList } from './ChatList/chatList';
 
 
 export const Routes = () => {
@@ -19,8 +20,12 @@ export const Routes = () => {
         <Route exact path='/'>
           <HomePage />
         </Route>
+        <Route exact path='/chat'>
+          <ChatList />
+        </Route>
         <Route path='/chat/:chatId'>
           <App />
+          <ChatList />
         </Route>
         <Route path='/personal'>
           <PersonalPage />

@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { MessageField } from '../../components/MessageField/messageField';
-import { ChatList } from '../../components/ChatList/chatList';
 
 import './app.scss'
 
